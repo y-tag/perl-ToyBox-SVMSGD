@@ -1,0 +1,36 @@
+NAME
+    ToyBox::SVMSGD - Classifier using SGD for SVM
+
+SYNOPSIS
+      use ToyBox::SVMSGD;
+
+      my $svm= ToyBox::SVMSGD->new();
+  
+      $svm->add_instance(
+          attributes => {a => 2, b => 3},
+          label => 'positive'
+      );
+  
+      $svm->add_instance(
+          attributes => {c => 3, d => 1},
+          label => 'negative'
+      );
+  
+      $svm->train(T => $svm->data_num(),
+                  lambda => 1.0,
+                  t0 => 10,
+                  progress_cb => 'verbose');
+  
+      my $score = $svm->predict(
+                      attributes => {a => 1, b => 1, d => 1, e =>1}
+                  );
+
+DESCRIPTION
+AUTHOR
+    TAGAMI Yukihiro <tagami.yukihiro@gmail.com>
+
+LICENSE
+    This library is distributed under the term of the MIT license.
+
+    <http://opensource.org/licenses/mit-license.php>
+
